@@ -1,0 +1,112 @@
+=====CREATE PROJECT=====
+1. Create project
+    expo init new-project-name
+    -'blank'
+
+=====INSTALL ESLINT AND PRETTIER=====
+2. Install eslint:
+    npm install -D eslint
+    ./node_modules/.bin/eslint --init
+
+    ** then when prompted:
+    -'to check syntax and find problems'
+    -'Javascript modules'
+    -'React'
+    -'Browser, Node'
+    -'Javascript'
+    -"Would you like to install?" 'Yes'
+
+3. Install prettier:
+    npm install -D prettier eslint-plugin-prettier eslint-config-prettier
+
+4. Update .eslintrc.js file in root of project with
+{
+  “extends”: [
+    “eslint:recommended”,
+    “prettier”
+  ],
+  “plugins”: [
+    “prettier”
+  ],
+  “rules”: {
+    “prettier/prettier”: “error”,
+    "no-unused-vars": "warn",
+    "react/prop-types": "warn",
+  }
+}
+
+5. Add .prettierrc.js file to root of project with
+module.exports = {
+  trailingComma: "es5",
+  tabWidth: 4,
+  semi: false,
+  singleQuote: true,
+};
+
+=====INSTALL typescript?=====
+- pretty sure you can just run :LspInstallServer in any .js file,
+    ** stopped here on FYM (6.19.20)
+
+but you may need to install typescript via npm (
+https://github.com/prabirshrestha/vim-lsp/wiki/Servers-JavaScript
+        )
+        prett sure you can ignore the rest of the INSTALL FLOW text and it can be moved to a different document
+"=====INSTALL FLOW=====
+"6. Create src directory at root of project
+"
+"7. Install Babel packages:
+"    npm install --save-dev @babel/core @babel/cli @babel/preset-flow
+"
+"8. Create .babelrc file at root of project with
+"{
+"    "presets": ["@babel/preset-flow"]
+"}
+"
+"9. Run:
+"    ./node_modules/.bin/babel src/ -d lib/
+"
+"10. Update package.json with
+"{
+"    "scripts": {
+"        "build": "babel src/ -d lib/",
+"        "prepublish": "npm run build"
+"    }
+"}
+"
+"11. Install Flow:
+"    npm install --save-dev flow-bin
+"
+"12. Update package.json with
+"{
+"    "devDependencies": {
+"        "flow-bin": "^0.125.0"  //probably already there
+"    },
+"    "scripts": {
+"        "flow": "flow"
+"    }
+"}
+"
+"13. Run:
+"    npm run flow init
+"
+"14. Then run:
+"    npm run flow
+
+
+*** separately: install fonts if you're going to use them by adding the .ttf files in a font folder in the assets folder and run 'expo install expo-font'
+
+*** also: install navigation with:
+    npm install --save react-navigation
+    expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+- then you have to add the navigation types individually, e.g.:
+    npm install --save react-navigation-stack
+    npm install --save react-navigation-tabs
+    npm install --save react-navigation-drawer
+
+SOURCE for Steps 1-4: https://medium.com/@alexlafroscia/writing-js-in-vim-4c971a95fd49
+
+SOURCE for Step 5: https://prettier.io/docs/en/configuration.html
+
+SOURCE for Step 6-14: https://flow.org/en/docs/install/
+
+SUGGESTED NEXT STEPS: https://ashleynolan.co.uk/blog/beginners-guide-to-terminal-aliases-and-functions
